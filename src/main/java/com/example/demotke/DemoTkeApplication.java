@@ -16,7 +16,7 @@ public class DemoTkeApplication {
 
     @GetMapping("name/{name}")
     public String getName( @PathVariable String name ) {
-        return "hello " +name;
+        return "hello welcom to honghong " +name;
     }
 
 }
