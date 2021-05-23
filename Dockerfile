@@ -1,4 +1,4 @@
-FROM centos:7
-RUN yum update -y && yum install -y java-1.8.0-openjdk
-COPY target/demo-tke-0.0.1-SNAPSHOT.jar /data/
-CMD ["sh", "-c", "cd /data; java -jar demo-tke-0.0.1-SNAPSHOT.jar"]
+FROM java:8
+VOLUME /tmp
+ADD target/demo-tke-0.0.1-SNAPSHOT.jar /nginx-8888.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/nginx-8888.jar"]
